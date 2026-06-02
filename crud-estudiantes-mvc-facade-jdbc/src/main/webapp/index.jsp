@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Proyecto Universidad</title>
 </head>
 <body>
 
@@ -41,9 +41,9 @@
   5- Capa Model.
   6- etc..-->
  
-  <h1>CRUD Empleados MVC Facade JDBC</h1>
+  <h1>CRUD Estudiantes MVC Facade JDBC</h1>
 	<div>
-		<a href="MainController">Mostrar Listado de Empleados</a>
+		<a href="MainController">Mostrar Listado de Estudiantes</a>
 	</div>
 
 </body>
