@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.example.models.Estudiante;
 import com.example.services.EstudianteService;
+import com.example.services.EstudianteServiceImpl;
 
 /**
  * Servlet implementation class MainController
@@ -32,19 +34,23 @@ public class MainController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		EstudianteService estudianteService = new EstudiantesServiceImpl();
+		// Conectar con la capa de servicios para obtener el listado de estudiante.
+		EstudianteService estudianteService = new EstudianteServiceImpl();
 		
-		List<Estudiante> estudiante = estudianteService.getEstudiantes();
+		// Lista donde cada elemeto es un objeto de tipo Estudiante, con sus atributos.
+		// Desde el controlador conectamos con la capa de servicios,
+		// y esta a su vez con la capa DAO, para obtener el listado de estudiantes.
+		List<Estudiante> estudiantes = estudianteService.getEstudiantes();
 		
-		// El listado de empleados recogido hay que enviarlo como atributo a la vista JSP,
+		// El listado de estudiante recogido hay que enviarlo como atributo a la vista JSP,
 		// para que sea renderizado, para que se muestre en la página web vamos.
 		
-		request.setAttribute("estudiantes", estudiantes); // ya tiene el listado de empleados aquí.
+		request.setAttribute("estudiantes", estudiantes); // ya tiene el listado de estudiantes aquí.
 		
 		// Hay que procesar el atributo.
 		
 		request.getRequestDispatcher("views/listadoEstudiantes.jsp").forward(request, response);
-		// vista de listado de empleados de nuestra carpeta views.
+		// vista de listado de estudiantes de nuestra carpeta views.
 		
 	}
 
